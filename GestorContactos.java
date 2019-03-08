@@ -4,8 +4,10 @@ public class GestorContactos {
 	
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
+	
 
 	public static void main(String[] args) {
+		
 		int opcion;
 		do {
 			System.out.print("\033[H\033[2J");
@@ -32,7 +34,7 @@ public class GestorContactos {
 					//mostrarTodos();
 					break;
 				case 4:
-					//mostrarFiltrados();
+					mostrarFiltrados();
 					break;
 				case 0:
 					System.out.println("\n\nBye ;)");
@@ -49,6 +51,25 @@ public class GestorContactos {
 
 	private static void mostrarTodos() {}
 
-	private static void mostrarFiltrados() {}
-
+	private static void mostrarFiltrados() {
+	 
+		String busqueda;
+		System.out.println("Ingresa Nombre o Apellido a buscar: ");
+		busqueda = scan.next();
+			
+		String nombre;
+		String apellido;
+			
+		for (Contacto contacto : contactos) {
+			nombre = contacto.getNombre();
+			apellido = contacto.getApellido();
+			
+			if(nombre.contains(busqueda)) {
+				System.out.println("Resultado: " + nombre + " " + apellido);
+			} else if (apellido.contains(busqueda)) {
+				System.out.println("Resultado: " + nombre + " " + apellido);
+			}
+		}
+		
+	}
 }

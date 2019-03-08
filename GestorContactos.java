@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class GestorContactos {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
 	
@@ -25,10 +25,10 @@ public class GestorContactos {
 			opcion = scan.nextInt();
 			switch (opcion) {
 				case 1:
-					//crearContacto();
+					crearContacto();
 					break;
 				case 2:
-					//eliminarContacto();
+					eliminarContacto();
 					break;
 				case 3:
 					//mostrarTodos();
@@ -45,9 +45,57 @@ public class GestorContactos {
 		} while(opcion != 0);
 	}
 
-	private static void crearContacto() {}
+	private static void crearContacto() {
+		String nombre;
+		String apellido;
+		String telefono;
+		String fechaNac;
+		Contacto aux;
+		System.out.println("Ingresar nombre de contacto");
+		nombre = scan.next();
+		System.out.println("Ingresar apellido de contacto");
+		apellido = scan.next();
+		System.out.println("Ingresar fecha de nacimiento");
+		fechaNac = scan.next();
+		System.out.println("Ingresar telefono");
+		telefono = scan.next();
+		aux = new Contacto(nombre, apellido, fechaNac, telefono);
+		contactos.add(aux);
+	}
 
-	private static void eliminarContacto() {}
+	private static void eliminarContacto() {
+		String eliminar;
+		boolean encontrado = false;
+		System.out.println("Nombre de contacto a eliminar:");
+		eliminar = scan.nextLine();
+		if (contactos.isEmpty()){
+			System.out.println("No Hay Contactos a Eliminar");
+		} else {
+			int i = 0;
+				for (; i < contactos.size(); i++) {
+
+						if (eliminar.equals(contactos.get(i).getNombre())) {
+								System.out.println(i + 1 + ". " + contactos.get(i).getNombre()
+								+ "-" + "Tf:"
+								 + contactos.get(i).getTelefono());
+								encontrado = true;
+								break;
+						}
+					}
+					 if(encontrado) {
+						 System.out.println("Esta Seguro de Eliminarlo S/N");
+						 String respuesta;
+						 respuesta = scan.nextLine();
+						 if(respuesta == "S"){
+							 contactos.remove(i);
+						 }else{
+							 System.out.println("No se Eliminara Nada");
+					 }
+
+					}
+
+		}
+	}
 
 	private static void mostrarTodos() {}
 
@@ -73,3 +121,4 @@ public class GestorContactos {
 		
 	}
 }
+

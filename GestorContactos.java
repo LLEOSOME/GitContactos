@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class GestorContactos {
-	
+
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class GestorContactos {
 			opcion = scan.nextInt();
 			switch (opcion) {
 				case 1:
-					//crearContacto();
+					crearContacto();
 					break;
 				case 2:
 					//eliminarContacto();
@@ -43,7 +43,27 @@ public class GestorContactos {
 		} while(opcion != 0);
 	}
 
-	private static void crearContacto() {}
+	private static void crearContacto() {
+		String nombre;
+		String apellido;
+		String telefono;
+		String fechaNac;
+		Contacto aux;
+		System.out.println("Ingresar nombre de contacto");
+		nombre = scan.next();
+		System.out.println("Ingresar apellido de contacto");
+		apellido = scan.next();
+		System.out.println("Ingresar fecha de nacimiento");
+		fechaNac = scan.next();
+		System.out.println("Ingresar telefono");
+		telefono = scan.next();
+	  aux = new Contacto();
+		aux.setNombre(nombre);
+		aux.setApellido(apellido);
+		aux.setFechaNacimiento(fechaNac);
+		aux.setTelefono(telefono);
+		contactos.add(aux);
+	}
 
 	private static void eliminarContacto() {}
 

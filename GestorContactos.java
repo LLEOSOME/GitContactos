@@ -112,9 +112,9 @@ public class GestorContactos {
 			nombre = contacto.getNombre();
 			apellido = contacto.getApellido();
 			
-			if(nombre.contains(busqueda)) {
+			if(nombre.toLowerCase().contains(busqueda)) {
 				System.out.println("Resultado: " + nombre + " " + apellido);
-			} else if (apellido.contains(busqueda)) {
+			} else if (apellido.toLowerCase().contains(busqueda)) {
 				System.out.println("Resultado: " + nombre + " " + apellido);
 			}
 		}

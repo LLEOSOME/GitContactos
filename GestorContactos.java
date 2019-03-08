@@ -26,7 +26,7 @@ public class GestorContactos {
 					crearContacto();
 					break;
 				case 2:
-					//eliminarContacto();
+					eliminarContacto();
 					break;
 				case 3:
 					//mostrarTodos();

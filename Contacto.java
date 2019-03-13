@@ -5,6 +5,16 @@ public class Contacto {
 	private String fechaNacimiento;
 	private String telefono;
 
+	public Contacto(){
+  }
+
+	public Contacto(String nombre, String apellido, String fechaNacimiento, String telefono){
+	         this.nombre = nombre;
+		       this.apellido = apellido;
+					 this.fechaNacimiento = fechaNacimiento;
+		       this.telefono = telefono;
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -35,6 +45,11 @@ public class Contacto {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+	@Override
+	public String toString() {
+		return this.nombre + " - " + this.apellido + " - " + this.fechaNacimiento + " - " +this.telefono;
 	}
 
 }

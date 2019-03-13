@@ -4,10 +4,10 @@ public class GestorContactos {
 
 	private static Scanner scan = new Scanner(System.in);
 	private static List<Contacto> contactos = new ArrayList<>();
-	
+
 
 	public static void main(String[] args) {
-		
+
 		int opcion;
 		do {
 			System.out.print("\033[H\033[2J");
@@ -31,7 +31,7 @@ public class GestorContactos {
 					eliminarContacto();
 					break;
 				case 3:
-					//mostrarTodos();
+					mostrarTodos();
 					break;
 				case 4:
 					mostrarFiltrados();
@@ -97,28 +97,32 @@ public class GestorContactos {
 		}
 	}
 
-	private static void mostrarTodos() {}
+	private static void mostrarTodos() {
+	for (int i = 0; i < contactos.size(); i++) {
+		 System.out.println(contactos.get(i).getNombre()+ " "+contactos.get(i).getApellido()+ ", "+
+		 contactos.get(i).getFechaNacimiento()+ ", "+contactos.get(i).getTelefono());
+	}
+}
 
 	private static void mostrarFiltrados() {
-	 
+
 		String busqueda;
 		System.out.println("Ingresa Nombre o Apellido a buscar: ");
 		busqueda = scan.next();
-			
+
 		String nombre;
 		String apellido;
-			
+
 		for (Contacto contacto : contactos) {
 			nombre = contacto.getNombre();
 			apellido = contacto.getApellido();
-			
+
 			if(nombre.toLowerCase().contains(busqueda)) {
 				System.out.println("Resultado: " + nombre + " " + apellido);
 			} else if (apellido.toLowerCase().contains(busqueda)) {
 				System.out.println("Resultado: " + nombre + " " + apellido);
 			}
 		}
-		
+
 	}
 }
-
